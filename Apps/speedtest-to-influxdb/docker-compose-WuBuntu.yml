@@ -1,4 +1,4 @@
-name: test-adguard-home
+name: test-urban
 services:
   adguard-home:
     image: adguard/adguardhome:v0.107.41
@@ -104,6 +104,6 @@ x-casaos:
   thumbnail: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/AdGuardHome/thumbnail.png
   tips: {}
   title:
-    en_us: Test-AdGuard Home
+    en_us: Test-Urban
   index: /
   port_map: "3001"
