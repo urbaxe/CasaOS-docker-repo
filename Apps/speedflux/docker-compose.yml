@@ -3,7 +3,7 @@ services:
   main_app:
     cpu_shares: 10
     command: []
-    container_name: speedtest
+    container_name: speedflux
     deploy:
       resources:
         limits:
