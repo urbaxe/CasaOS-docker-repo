@@ -9,7 +9,7 @@ services:
         limits:
           memory: 256M
     environment:
-      - INFLUX_DB_ADDRESS=192.168.10.99
+      - INFLUX_DB_ADDRESS=192.168.10.999
       - INFLUX_DB_DATABASE=speedtest
       - INFLUX_DB_USER=speedtest
       - INFLUX_DB_PASSWORD=
