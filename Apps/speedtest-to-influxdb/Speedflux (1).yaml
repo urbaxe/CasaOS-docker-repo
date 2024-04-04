@@ -1,0 +1,48 @@
+name: imaginative_markus
+services:
+  main_app:
+    cpu_shares: 10
+    command: []
+    container_name: speedtest
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+    environment:
+      - INFLUX_DB_ADDRESS=192.168.10.99
+      - INFLUX_DB_DATABASE=speedtest
+      - INFLUX_DB_PASSWORD=NorrJaga64#
+      - INFLUX_DB_PORT=8086
+      - INFLUX_DB_TAGS=isp, external_ip, server_id, server_name,
+        server_location, speedtest_url
+      - INFLUX_DB_USER=speedtest
+      - LOG_TYPE=info
+      - PING_INTERVAL=60
+      - PING_TARGETS=1.1.1.1, 8.8.8.8
+      - SPEEDTEST_FAIL_INTERVAL=5
+      - SPEEDTEST_INTERVAL=150
+    image: breadlysm/speedtest-to-influxdb:latest
+    labels:
+      icon: https://icon.casaos.io/main/all/speedtest-to-influxdb.png
+    ports:
+      - target: 8086
+        published: "8086"
+        protocol: tcp
+    restart: unless-stopped
+    volumes: []
+    devices: []
+    cap_add: []
+    network_mode: bridge
+    privileged: false
+    hostname: speedtest
+x-casaos:
+  author: self
+  category: self
+  hostname: ha.fixdata.org/a0d7b954_grafana/ingress
+  icon: https://github.com/walkxcode/dashboard-icons/blob/main/png/openspeedtest.png?raw=true
+  index: /
+  port_map: ""
+  scheme: https
+  store_app_id: imaginative_markus
+  title:
+    custom: Speedflux
