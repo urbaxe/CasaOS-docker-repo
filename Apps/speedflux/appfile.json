@@ -1,0 +1,90 @@
+{
+    "version": "1.0",
+    "title": "Speedflux",
+    "name": "speedflux",
+    "icon": "https://github.com/walkxcode/dashboard-icons/blob/main/png/openspeedtest.png?raw=true",
+    "tagline": "Take control of your Minecraft servers.",
+    "overview": "Crafty is an open source Minecraft control panel built using Tornado and AdminLTE, featuring server scheduling, a interactive console and the ability to run almost any type of Minecraft server",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Crafty/thumbnail.jpg",
+    "screenshots": [
+        "https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Crafty/screenshot-1.png",
+        "https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Crafty/screenshot-2.png",
+        "https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Crafty/screenshot-3.png",
+        "https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Crafty/screenshot-4.png",
+        "https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Crafty/screenshot-5.png",
+        "https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Crafty/screenshot-6.png",
+        "https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Crafty/screenshot-7.png"
+    ],
+    "category": [
+        "Games"
+    ],
+    "developer": {
+        "name": "Fixdata Team",
+        "website": "https://gitlab.com/crafty-controller/crafty-team",
+        "donate_text": "", 
+        "donate_link": ""
+    },
+    "adaptor": {
+        "name": "Chàra Rose",
+        "website": "https://chara.cloud",
+        "donate_text": "", 
+        "donate_link": ""
+    },
+    "support": "https://discord.gg/knqAbbBbeX",
+    "website": "https://www.casaos.io",
+    "container": {
+        "image": "arcadiatechnology/crafty-4",
+        "shell": "bash",
+        "privileged": false,
+        "network_model": "bridge",
+        "web_ui": {
+            "http": "8110",
+            "path": "/panel"
+        },
+        "envs": [
+            {
+                "key": "TZ",
+                "value": "Europe/Stockholm",
+                "configurable": "yes",
+                "description": "Timezone"
+            }
+        ],
+        "ports": [
+            {
+                "container": "8000",
+                "host": "8110",
+                "type": "tcp",
+                "allocation": "preferred",
+                "configurable": "advanced",
+                "description": "WebUI HTTP Port"
+            },
+        ],
+        "volumes": [
+            {
+                "container": "/crafty/backups",
+                "host": "/DATA/AppData/crafty/backups",
+                "mode": "rw",
+                "allocation": "automatic",
+                "configurable": "no",
+                "description": "Crafty backups directory."
+            },
+        ],
+        "devices": [],
+        "constraints": {
+            "min_memory": 1024,
+            "min_storage": 1024
+        },
+        "restart_policy": "unless-stopped",
+        "sysctls": [],
+        "cap_add": [],
+        "labels": []
+    },
+    "abilities": {
+        "notification": false,
+        "widgets": false,
+        "authentication": false,
+        "search": false,
+        "upnp": false
+    },
+    "tips": {}
+}
